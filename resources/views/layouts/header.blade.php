@@ -13,6 +13,13 @@
                         @yield('page_active')
                     </ul>
                 </div>
+                <!-- @if(isset($showSearchForm) && $showSearchForm) -->
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search name" value="{{$search}}" aria-label="Search"
+                    name="q">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <!-- @endif -->
             </div>
         </nav>
     </div>

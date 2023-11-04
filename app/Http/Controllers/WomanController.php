@@ -11,10 +11,15 @@ class WomanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $women = woman::all();
-        return view('women.index', compact('women'));
+        $showSearchForm = true;
+        $search = $request->get('q');
+        $women = woman::where('name', 'like', '%' . $search . '%')->orderBy('created_at', 'desc')->paginate(5);
+        $women->appends([
+            'q'=> $search,
+        ]);
+        return view('women.index', compact('women', 'search', 'showSearchForm'));
     }
 
     /**

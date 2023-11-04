@@ -97,8 +97,10 @@
                         </tr>
                     </tbody>
                 @endforeach
-
             </table>
+            <div class="paginator">
+                {{ $women->links() }}
+            </div>
         </div>
 
        
